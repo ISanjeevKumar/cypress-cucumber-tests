@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Install depedency') {
             steps {
-                sh 'npm ci'
+                sh 'npm i'
                 sh 'npx cypress verify'
             }
         }
@@ -26,6 +26,13 @@ pipeline {
                     }
                 }
             }
+        }
+    }
+
+    post {
+        always {
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'TestReports/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+            deleteDir()
         }
     }
 }

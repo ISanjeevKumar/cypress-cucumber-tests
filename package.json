@@ -1,0 +1,23 @@
+{
+  "name": "cypress-cucumber-tests",
+  "version": "1.0.0",
+  "description": "Sample test automation for cucumber tests using cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run --spec '**/*.feature' --browser chrome"
+  },
+  "keywords": [
+    "cypress-cucumber",
+    "cucumber"
+  ],
+  "author": "Sanjeev Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^9.1.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-tags": "^0.3.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+}

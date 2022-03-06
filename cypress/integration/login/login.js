@@ -1,19 +1,20 @@
 import { Given, When, And, Then } from 'cypress-cucumber-preprocessor/steps';
+import { loginPage } from '../../page_objects/app';
 
 Given('I navigate to login page', () => {
     cy.visit('/')
 })
 
 And('I enter username {string}', (username) => {
-    cy.get('#user-name').type(username);
+    loginPage.enterUserName(username);
 })
 
 And('I enter password {string}', (password) => {
-    cy.get('#password').type(password);
+    loginPage.enterPassword(password);
 })
 
 When('I click login button', () => {
-    cy.get('#login-button').click();
+    loginPage.clickLoginButton();
 })
 
 Then('I will be logged in', () => {
@@ -22,7 +23,6 @@ Then('I will be logged in', () => {
 
 
 Then('I will get an error message {string}', (errorMessage) => {
-    cy.get('[data-test=error]').should('not.be.empty')
-        .and('contain.text', errorMessage)
+    loginPage.verifyErrorMessage(errorMessage);
 })
 

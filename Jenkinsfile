@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    tools { nodejs 'nodejs' }
     parameters {
         string(name:'SPEC', defaultValue:'**/*.feature', description:'choose feature files that you want to run')
         choice(name:'BROWSER', choices: ['chrome', 'electron', 'firefox'], description:'choose the browser')

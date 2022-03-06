@@ -32,8 +32,6 @@ async function runTests() {
         headless: true
     });
     const totalFailed = run['totalFailed']
-    // const jsonReport = await merge(options);
-    // await generator.create(jsonReport, options);
     process.exit(totalFailed);
 }
 

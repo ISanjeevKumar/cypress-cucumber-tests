@@ -31,7 +31,6 @@ pipeline {
 
     post {
         always {
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'TestReports/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
             deleteDir()
         }
     }

@@ -10,6 +10,7 @@ Feature: Login feature
         When I click login button
         Then I will be logged in
 
+    @regression
     Scenario: Should not be able to login with invalid credentials
         Given I navigate to login page
         And I enter username 'standard_user'

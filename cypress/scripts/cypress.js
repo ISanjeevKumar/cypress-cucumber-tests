@@ -9,13 +9,13 @@ const argv = yargs.options({
         default: 'chrome',
         choices: ['chrome', 'electron', 'firefox']
     },
-    "spec":{
+    "spec": {
         alias: 's',
         describe: 'choose feature files that you want to run',
         default: '**/*.feature',
         choices: ['**/*.feature']
     },
-    'tags': {
+    'tag': {
         alias: 't',
         describe: 'Select the tag you want to run from feature file',
         default: 'smoke',
@@ -29,7 +29,11 @@ async function runTests() {
     const run = await cypress.run({
         browser: argv.browser,
         spec: argv.spec,
-        headless: true
+        headless: true,
+        env: {
+            TAGS: `@${argv.tag}`,
+        }
+
     });
     const totalFailed = run['totalFailed']
     process.exit(totalFailed);

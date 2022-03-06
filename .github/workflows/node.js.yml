@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        test-type: ["regression","smoke"]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -31,4 +31,4 @@ jobs:
            npm ci && npx cypress verify
     - name: Execute Cypress e2e tests 
       run: |
-        npm run test -tag "regression"
+        npm run test -tag ${{ matrix['test-type'] }}

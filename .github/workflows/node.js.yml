@@ -25,5 +25,10 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm test
+        cache: 'npm'    
+    - name: Install npm and verify Cypress
+      run: |
+           npm ci && npx cypress verify
+    - name: Execute Cypress e2e tests 
+      run: |
+        npm run test

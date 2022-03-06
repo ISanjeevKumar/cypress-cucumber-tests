@@ -4,7 +4,7 @@
   "description": "Sample test automation for cucumber tests using cypress",
   "main": "index.js",
   "scripts": {
-    "test": "node cypress/scripts/cypress.js",
+    "test": "node cypress/scripts/cypress.js -t $npm_config_tag",
     "cy:run": "cypress run --spec '**/*.feature' --browser chrome"
   },
   "keywords": [

@@ -1,4 +1,4 @@
-# cypress-cucumber-tests
+# cypress-cucumber-tests [![cypress-cucumber-tests](https://github.com/ISanjeevKumar/cypress-cucumber-tests/actions/workflows/node.js.yml/badge.svg)](https://github.com/ISanjeevKumar/cypress-cucumber-tests/actions/workflows/node.js.yml)
 
 Challenges faced and resolutions:
 

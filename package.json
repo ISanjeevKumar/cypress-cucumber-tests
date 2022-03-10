@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node cypress/scripts/cypress.js -t $npm_config_tag",
-    "cy:run": "cypress run --spec '**/*.feature' --browser chrome"
+    "cy:run": "node cypress/scripts/cypress.js  --spec '**/*.feature' --browser chrome",
+    "cy:tag:run": "CYPRESS_INCLUDE_TAGS=smoke cypress run"
   },
   "keywords": [
     "cypress-cucumber",
@@ -18,9 +19,16 @@
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-tags": "^0.3.0",
     "fs-extra": "^10.0.1",
+    "multiple-cucumber-html-reporter": "^1.19.0",
     "yargs": "^17.3.1"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "TestReports/",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   }
 }

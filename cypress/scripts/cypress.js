@@ -1,6 +1,7 @@
 const fse = require('fs-extra');
 const yargs = require('yargs')
 const cypress = require('cypress');
+const report = require("multiple-cucumber-html-reporter");
 
 const argv = yargs.options({
     'browser': {
@@ -36,7 +37,26 @@ async function runTests() {
 
     });
     const totalFailed = run['totalFailed']
+    await generateTestReport();
     process.exit(totalFailed);
 }
 
+function generateTestReport() {
+    report.generate({
+        jsonDir: "TestReports/",
+        reportPath: "TestReports/",
+        metadata: {
+            browser: {
+                name: "chrome",
+                version: "81",
+            },
+            platform: {
+                name: "mac",
+                version: "Catalina",
+            },
+        },
+    });
+}
+
 runTests();
+
